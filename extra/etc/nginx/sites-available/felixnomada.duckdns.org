@@ -1,0 +1,26 @@
+upstream felixweb {
+    server unix:///home/ubuntu/FelixWeb/web.sock;
+}
+
+server {
+    listen 80;
+    server_name felixnomada.duckdns.org;
+
+    location = /favicon.ico {
+        access_log off; log_not_found off;
+        alias /var/www/FelixWeb/static/favicon.ico;
+    }
+
+
+    # Static root settigns
+    location /static/ {
+        root /var/www/FelixWeb/static/;
+    }
+
+
+    # Gunicorn proxy settings
+    location / {
+        include proxy_params;
+        proxy_pass http://felixweb;
+    }
+}

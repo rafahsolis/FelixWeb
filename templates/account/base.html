@@ -1,0 +1,35 @@
+{% extends "theme_bootstrap/subnav_base.html" %}
+
+{% load i18n %}
+
+{% block body_class %}account{% endblock %}
+
+{% block subnav %}
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>{% trans "Settings" %}</strong></div>
+    <div class="list-group">
+        <a class="list-group-item account-settings" href="{% url "account_settings" %}">
+            {% trans "Account" %}
+        </a>
+{#        <a class="list-group-item account-profile" href="{% url "profile:settings" %}">#}
+{#            {% trans "Profile" %}#}
+{#        </a>#}
+{#        {% if user.business_profile %}#}
+{#            <a class="list-group-item business-account-profile" href="{% url "profile:update_business" %}">#}
+{#                {% trans "Business Profile" %}#}
+{#            </a>#}
+{#        {% endif %}#}
+        <a class="list-group-item account-password" href="{% url "account_password" %}">
+            {% trans "Change password" %}
+        </a>
+        <a class="list-group-item account-delete" href="{% url "account_delete" %}">
+            {% trans "Delete account" %}
+        </a>
+    </div>
+
+</div>
+{#    {% if not user.business_profile %}#}
+{#        <a class="btn btn-sm btn-default" href="{% url "profile:create_business" %}">Become Pro!</a>#}
+{#    {% endif %}#}
+{% endblock %}
+
