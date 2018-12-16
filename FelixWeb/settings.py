@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/FelixWeb/static/'
 LOGOUT_URL = '/account/logout'
 LOGIN_REDIRECT_URL = '/'
 
