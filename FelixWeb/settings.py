@@ -133,7 +133,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/FelixWeb/static/'
 LOGOUT_URL = '/account/logout'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/sessions'
 
 EMAIL_HOST = 'mail.dataheroes.io'
 EMAIL_HOST_USER = 'felixweb@dataheroes.io'

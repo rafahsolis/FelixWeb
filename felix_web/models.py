@@ -11,8 +11,10 @@ class User(models.Model):
 
 class Session(models.Model):
     id = models.IntegerField(primary_key=True)
-    status = models.NullBooleanField()
+    nomad = models.ForeignKey('User', on_delete=models.CASCADE)
+    success = models.NullBooleanField()
     resolved_by_human = models.NullBooleanField()
+    created = models.DateTimeField(auto_now_add=True)
 
 
 class Turn(models.Model):
@@ -20,5 +22,7 @@ class Turn(models.Model):
     user = models.ForeignKey(DjangoUser, on_delete=models.CASCADE)
     session = models.ForeignKey('Session', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
+    lat = models.FloatField()
+    lon = models.FloatField()
     question = models.TextField()
     answer = models.TextField()
