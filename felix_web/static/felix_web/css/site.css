@@ -1,0 +1,43 @@
+.skin-blue .main-header .logo {
+    background-color: #3AACA9;
+    color: #fff;
+    /* border-bottom: 0 solid transparent; */
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #3AACA9;
+}
+
+.content-wrapper, .right-side {
+    background-color: #fff;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #3AACA9;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #fff;
+    /* background: #1a2226; */
+}
+
+.skin-blue .sidebar a {
+    color: #fff;
+}
+
+.skin-blue .main-header .navbar {
+    background-color: #fff;
+}
+
+.btn-default {
+    background-color: #3AACA9;
+    color: #444;
+    border-color: #ddd;
+    padding: 10px 50px;
+}
+
+.btn-danger {
+    background-color: #dd4b39;
+    border-color: #d73925;
+    padding: 10px 50px;
+}
