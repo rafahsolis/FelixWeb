@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='turn',
             name='lat',
-            field=models.FloatField(default=django.utils.timezone.now),
+            field=models.FloatField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
