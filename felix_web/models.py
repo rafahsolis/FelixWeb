@@ -10,11 +10,12 @@ class User(models.Model):
 
 
 class Session(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.CharField(max_length=16, primary_key=True)
     nomad = models.ForeignKey('User', on_delete=models.CASCADE)
     success = models.NullBooleanField()
     resolved_by_human = models.NullBooleanField()
     created = models.DateTimeField(auto_now_add=True)
+    end = models.DateTimeField(null=True, blank=True)
 
 
 class Turn(models.Model):
@@ -26,3 +27,6 @@ class Turn(models.Model):
     lon = models.FloatField()
     question = models.TextField()
     answer = models.TextField()
+
+    class Meta:
+        ordering = ('timestamp',)

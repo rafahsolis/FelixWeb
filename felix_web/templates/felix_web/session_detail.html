@@ -1,1 +1,10 @@
 {% extends 'base.html' %}
+{% block content %}
+    {{ object.nomad.phone }}
+    {% for turn in turnss %}
+        {{ trun.nomad }}: {{ turn.question }}<br />
+        {{ trun.user }}: {{ turn.answer }}<br />
+        {{ trun.lat }}: {{ turn.long }}<br />
+        {{ turn.session.created }}
+    {% endfor %}
+{% endblock %}

@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
 import json
 from functools import wraps
+from django.utils import timezone
 from django.conf import settings
 from django.http import HttpRequest, HttpResponse
 
@@ -49,7 +50,7 @@ class SessionKoDetail(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SessionKoDetail, self).get_context_data(**kwargs)
-        context['messages'] = Turn.objects.filter(session_id=self.object.id)
+        context['turns'] = Turn.objects.filter(session_id=self.object.id)
         return context
 
 
@@ -69,6 +70,7 @@ class SaveTurn(View):
                                    lon=request.POST['lon'],
                                    question=request.POST['question'],
                                    answer=request.POST['answer'],
+
                                    )
         return JsonResponse({'200': 'OK'})
 
@@ -89,7 +91,12 @@ class SaveTurn(View):
     @staticmethod
     def get_or_create_session(data, nomad):
         try:
-            return Session.objects.get(data['session'])
+            session = Session.objects.get(data['session'])
+            if data.get('end'):
+                session.end = timezone.now()
+                session.save()
+            return session
+
         except ObjectDoesNotExist:
             return Session.objects.create(
                 id=data['session'],

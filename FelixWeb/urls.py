@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from felix_web import views as web
-from django.contrib.auth.views import auth_login, auth_logout
 
 urlpatterns = [
     url('^$', web.HomeView.as_view(), name='Home'),
     url(r"^account/", include("account.urls")),
-    url(r"^sessions/", web.SessionKoView.as_view(), name='SessionsKO'),
-    url(r"^session_detail/", web.SessionKoDetail.as_view(), name='SessionDetail'),
+    url(r"^sessions/?", web.SessionKoView.as_view(), name='SessionsKO'),
+    url(r"^session_detail/(?P<pk>\d{0,16})/$", web.SessionKoDetail.as_view(), name='SessionDetail'),
     url(r"^save_turn/?$", web.SaveTurn.as_view(), name='SaveTurn'),
     path('admin/', admin.site.urls),
 ]
