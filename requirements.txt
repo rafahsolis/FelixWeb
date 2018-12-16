@@ -1,0 +1,16 @@
+chardet==3.0.4
+CheKnife==0.0.7
+configparser==3.5.0
+Django==2.1.4
+django-adminlte2==0.4.1
+django-appconf==1.0.2
+django-bootstrap==0.2.4
+django-bootstrap-form==3.4
+django-user-accounts==2.1.0
+future==0.17.1
+gunicorn==19.9.0
+pinax-theme-bootstrap==8.0.1
+pycryptodome==3.7.2
+pytz==2018.7
+six==1.12.0
+gunicorn==19.9.0
